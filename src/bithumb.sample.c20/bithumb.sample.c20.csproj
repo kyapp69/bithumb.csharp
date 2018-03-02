@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Bithumb.Sample</AssemblyName>
     <RootNamespace>Bithumb.Sample</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\bithumb.api.s16\bithumb.api.s16.csproj" />
+    <ProjectReference Include="..\bithumb.api.s20\bithumb.api.s20.csproj" />
   </ItemGroup>
 
 </Project>
