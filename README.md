@@ -30,6 +30,9 @@ Since I spent several days developing and testing this kit I would appreciate an
 
 ```
 2018/03/02: update .net core 1.1 to 2.0 & add .net framework 4.6.1 api library
+
+2018-03-02: convert standard library to core library
+
 ```
 
 ## Contact
