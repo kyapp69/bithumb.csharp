@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bithumb.api.s20", "src\bithumb.api.s20\bithumb.api.s20.csproj", "{C847116C-4349-4279-8B2D-55E54A8D69DF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logo-files", "logo-files", "{5A50B081-F4DF-42AD-9C52-3FDADE6D2919}"
@@ -22,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logo-files", "logo-files", 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bithumb.api.n46", "src\bithumb.api.n46\bithumb.api.n46.csproj", "{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bithumb.api.c20", "src\bithumb.api.c20\bithumb.api.c20.csproj", "{570D082C-4474-4FA9-804A-D7A955EC7B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,22 +33,22 @@ Global
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C847116C-4349-4279-8B2D-55E54A8D69DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C847116C-4349-4279-8B2D-55E54A8D69DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C847116C-4349-4279-8B2D-55E54A8D69DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C847116C-4349-4279-8B2D-55E54A8D69DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F90E350F-7774-4987-B095-7C2731F0C2C7} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
-		{C847116C-4349-4279-8B2D-55E54A8D69DF} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
 		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
+		{570D082C-4474-4FA9-804A-D7A955EC7B8D} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6D6A092-2C51-496E-A9D6-14BE47DE5337}

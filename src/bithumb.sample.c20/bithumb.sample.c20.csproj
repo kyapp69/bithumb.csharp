@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\bithumb.api.s20\bithumb.api.s20.csproj" />
+    <ProjectReference Include="..\bithumb.api.c20\bithumb.api.c20.csproj" />
   </ItemGroup>
 
 </Project>
