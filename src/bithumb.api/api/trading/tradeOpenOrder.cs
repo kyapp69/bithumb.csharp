@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XCT.BaseLib.API.Bithumb.User
+namespace XCT.BaseLib.API.Bithumb.Trading
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UserOrderData
+    public class TradeOpenOrder
     {
         /// <summary>
         /// 
@@ -133,11 +133,11 @@ namespace XCT.BaseLib.API.Bithumb.User
     /// <summary>
     /// 판/구매 거래 주문 등록 또는 진행 중인 거래
     /// </summary>
-    public class UserOrders : ApiResult<List<UserOrderData>>
+    public class TradeOpenOrders : ApiResult<List<TradeOpenOrder>>
     {
-        public UserOrders()
+        public TradeOpenOrders()
         {
-            this.data = new List<UserOrderData>();
+            this.data = new List<TradeOpenOrder>();
         }
     }
 }

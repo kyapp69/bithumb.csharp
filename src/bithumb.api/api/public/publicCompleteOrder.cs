@@ -11,7 +11,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// bithumb 거래소 거래 체결 완료 내역
     /// * {currency} = BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC)
     /// </summary>
-    public class PublicTransactionData
+    public class PublicCompleteOrder
     {
         /// <summary>
         /// 
@@ -22,7 +22,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <param name="price"></param>
         /// <param name="total"></param>
         [JsonConstructor]
-        public PublicTransactionData(string transaction_date, string type, string units_traded, string price, string total)
+        public PublicCompleteOrder(string transaction_date, string type, string units_traded, string price, string total)
         {
             if (CUnixTime.IsDateTimeFormat(transaction_date) == true)
             {
@@ -74,7 +74,6 @@ namespace XCT.BaseLib.API.Bithumb.Public
             set;
         }
 
-
         /// <summary>
         /// 총 거래금액
         /// </summary>
@@ -88,11 +87,11 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// <summary>
     /// 
     /// </summary>
-    public class PublicTransactions : ApiResult<List<PublicTransactionData>>
+    public class PublicCompleteOrders : ApiResult<List<PublicCompleteOrder>>
     {
-        public PublicTransactions()
+        public PublicCompleteOrders()
         {
-            this.data = new List<PublicTransactionData>();
+            this.data = new List<PublicCompleteOrder>();
         }
     }
 }

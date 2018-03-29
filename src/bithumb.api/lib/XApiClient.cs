@@ -5,6 +5,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace XCT.BaseLib.API
@@ -66,14 +67,16 @@ namespace XCT.BaseLib.API
 
         public IRestClient CreateJsonClient(string baseurl)
         {
-            var _client = new RestClient(baseurl);
+            var _client = new RestClient(baseurl)
             {
-                _client.RemoveHandler(__content_type);
-                _client.AddHandler(__content_type, new RestSharpJsonNetDeserializer());
-                _client.Timeout = 5 * 1000;
-                _client.ReadWriteTimeout = 32 * 1000;
-                _client.UserAgent = __user_agent;
-            }
+                Timeout = 5 * 1000,
+                ReadWriteTimeout = 32 * 1000,
+                UserAgent = __user_agent,
+                Encoding = Encoding.UTF8
+            };
+
+            _client.RemoveHandler(__content_type);
+            _client.AddHandler(__content_type, new RestSharpJsonNetDeserializer());
 
             return _client;
         }
@@ -154,6 +157,35 @@ namespace XCT.BaseLib.API
 
                 var _response = await _tcs.Task;
                 return JsonConvert.DeserializeObject<T>(_response.Content);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public async Task<string> CallApiGetAsync(string endpoint, Dictionary<string, object> args = null) 
+        {
+            var _request = CreateJsonRequest(endpoint, Method.GET);
+
+            if (args != null)
+            {
+                foreach (var a in args)
+                    _request.AddParameter(a.Key, a.Value);
+            }
+
+            var _client = CreateJsonClient(__api_url);
+            {
+                var _tcs = new TaskCompletionSource<IRestResponse>();
+                var _handle = _client.ExecuteAsync(_request, response =>
+                {
+                    _tcs.SetResult(response);
+                });
+
+                var _response = await _tcs.Task;
+                return _response.Content;
             }
         }
 

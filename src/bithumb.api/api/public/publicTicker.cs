@@ -193,7 +193,7 @@
         }
 
         /// <summary>
-        /// BITCASH
+        /// Bitcoin Cash
         /// </summary>
         public PublicTickerData BCH
         {

@@ -78,6 +78,24 @@
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public decimal? buy_price
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal? sell_price
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 현재 시간 Timestamp
         /// </summary>
         public long date

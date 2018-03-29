@@ -9,6 +9,8 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// </summary>
     public class BPublicApi
     {
+        public const string DealerName = "Bithumb";
+
         private string __connect_key;
         private string __secret_key;
 
@@ -45,9 +47,9 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// </summary>
         /// <param name="currency">BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC), ALL(전체)</param>
         /// <returns></returns>
-        public async Task<PublicTicker> Ticker(string currency)
+        public async Task<PublicTicker> Ticker(string currency = "ALL")
         {
-            return await PublicClient.CallApiGetAsync<PublicTicker>($"/public/ticker/{currency}");
+            return await PublicClient.CallApiGetAsync<PublicTicker>($"/public/ticker/{currency.ToUpper()}");
         }
 
         /// <summary>
@@ -66,7 +68,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <param name="group_orders">Value : 0 또는 1 (Default : 1)</param>
         /// <param name="count">Value : 1 ~ 50 (Default : 20)</param>
         /// <returns></returns>
-        public async Task<PublicOrderBook> OrderBook(string currency, int group_orders = 1, int count = 20)
+        public async Task<PublicOrderBook> OrderBook(string currency = "ALL", int group_orders = 1, int count = 20)
         {
             var _params = new Dictionary<string, object>();
             {
@@ -74,7 +76,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
                 _params.Add("count", count);
             }
 
-            return await PublicClient.CallApiGetAsync<PublicOrderBook>($"/public/orderbook/{currency}", _params);
+            return await PublicClient.CallApiGetAsync<PublicOrderBook>($"/public/orderbook/{currency.ToUpper()}", _params);
         }
 
         /// <summary>
@@ -84,7 +86,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <param name="offset">Value : 0 ~ (Default : 0)</param>
         /// <param name="count">Value : 1 ~ 100 (Default : 20)</param>
         /// <returns></returns>
-        public async Task<PublicTransactions> RecentTransactions(string currency, int offset = 0, int count = 50)
+        public async Task<PublicCompleteOrders> CompleteOrders(string currency, int offset = 0, int count = 20)
         {
             var _params = new Dictionary<string, object>();
             {
@@ -92,7 +94,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
                 _params.Add("count", count);
             }
 
-            return await PublicClient.CallApiGetAsync<PublicTransactions>($"/public/recent_transactions/{currency}", _params);
+            return await PublicClient.CallApiGetAsync<PublicCompleteOrders>($"/public/recent_transactions/{currency.ToUpper()}", _params);
         }
     }
 }

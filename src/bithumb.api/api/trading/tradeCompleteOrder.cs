@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace XCT.BaseLib.API.Bithumb.User
+namespace XCT.BaseLib.API.Bithumb.Trading
 {
     /// <summary>
     /// 회원 거래 내역
     /// </summary>
-    public class UserTransactionData
+    public class TradeCompleteOrder
     {
         /// <summary>
         /// 검색 구분 (0 : 전체, 1 : 구매완료, 2 : 판매완료, 3 : 출금중, 4 : 입금, 5 : 출금, 9 : KRW입금중)
@@ -82,48 +82,6 @@ namespace XCT.BaseLib.API.Bithumb.User
             set;
         }
 
-        public decimal bch1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal xmr1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal zec1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal qtum1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal btg1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal eos1krw
-        {
-            get;
-            set;
-        }
-
-        public decimal icx1krw
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// 거래수수료
         /// </summary>
@@ -172,48 +130,6 @@ namespace XCT.BaseLib.API.Bithumb.User
             set;
         }
 
-        public decimal bch_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal xmr_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal zec_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal qtum_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal btg_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal eos_remain
-        {
-            get;
-            set;
-        }
-
-        public decimal icx_remain
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// 거래 후 KRW 잔액
         /// </summary>
@@ -227,11 +143,11 @@ namespace XCT.BaseLib.API.Bithumb.User
     /// <summary>
     /// 회원 거래 내역
     /// </summary>
-    public class UserTransactions : ApiResult<List<UserTransactionData>>
+    public class TradeCompleteOrders : ApiResult<List<TradeCompleteOrder>>
     {
-        public UserTransactions()
+        public TradeCompleteOrders()
         {
-            this.data = new List<UserTransactionData>();
+            this.data = new List<TradeCompleteOrder>();
         }
     }
 }
