@@ -129,6 +129,13 @@
             LTC = new PublicTickerData();
             ETC = new PublicTickerData();
             XRP = new PublicTickerData();
+            BCH = new PublicTickerData();
+            XMR = new PublicTickerData();
+            ZEC = new PublicTickerData();
+            QTUM = new PublicTickerData();
+            BTG = new PublicTickerData();
+            EOS = new PublicTickerData();
+            ICX = new PublicTickerData();
         }
 
         /// <summary>
@@ -180,6 +187,69 @@
         /// Ripple
         /// </summary>
         public PublicTickerData XRP
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// BITCASH
+        /// </summary>
+        public PublicTickerData BCH
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Monero
+        /// </summary>
+        public PublicTickerData XMR
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Z-CASH
+        /// </summary>
+        public PublicTickerData ZEC
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Quntum
+        /// </summary>
+        public PublicTickerData QTUM
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Bitcoin Gold
+        /// </summary>
+        public PublicTickerData BTG
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// EOS
+        /// </summary>
+        public PublicTickerData EOS
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// ICX
+        /// </summary>
+        public PublicTickerData ICX
         {
             get;
             set;

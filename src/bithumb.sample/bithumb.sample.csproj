@@ -2,13 +2,17 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFrameworks>net47;netcoreapp2.0</TargetFrameworks>
     <AssemblyName>Bithumb.Sample</AssemblyName>
     <RootNamespace>Bithumb.Sample</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\bithumb.api.c20\bithumb.api.c20.csproj" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\bithumb.api\bithumb.api.csproj" />
   </ItemGroup>
 
 </Project>

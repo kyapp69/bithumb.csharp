@@ -82,6 +82,48 @@ namespace XCT.BaseLib.API.Bithumb.User
             set;
         }
 
+        public decimal bch1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal xmr1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal zec1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal qtum1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal btg1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal eos1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal icx1krw
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 거래수수료
         /// </summary>
@@ -125,6 +167,48 @@ namespace XCT.BaseLib.API.Bithumb.User
         }
 
         public decimal xrp_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal bch_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal xmr_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal zec_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal qtum_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal btg_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal eos_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal icx_remain
         {
             get;
             set;

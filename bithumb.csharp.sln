@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bithumb.sample.c20", "src\bithumb.sample.c20\bithumb.sample.c20.csproj", "{F90E350F-7774-4987-B095-7C2731F0C2C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bithumb.sample", "src\bithumb.sample\bithumb.sample.csproj", "{F90E350F-7774-4987-B095-7C2731F0C2C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE36102D-AC13-4DED-802B-F265CB1DEE53}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,9 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logo-files", "logo-files", 
 		logo-files\bithumb.api.png = logo-files\bithumb.api.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bithumb.api.n46", "src\bithumb.api.n46\bithumb.api.n46.csproj", "{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bithumb.api.c20", "src\bithumb.api.c20\bithumb.api.c20.csproj", "{570D082C-4474-4FA9-804A-D7A955EC7B8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bithumb.api", "src\bithumb.api\bithumb.api.csproj", "{570D082C-4474-4FA9-804A-D7A955EC7B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90E350F-7774-4987-B095-7C2731F0C2C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{570D082C-4474-4FA9-804A-D7A955EC7B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,7 +41,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F90E350F-7774-4987-B095-7C2731F0C2C7} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
-		{C3A8927F-D87F-42C1-A0A1-A2D8E2FA7F37} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
 		{570D082C-4474-4FA9-804A-D7A955EC7B8D} = {EFFFF510-E675-4A31-B7AD-2EA3A7E60DAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

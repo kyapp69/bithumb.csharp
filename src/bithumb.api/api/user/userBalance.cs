@@ -132,7 +132,6 @@
             set;
         }
 
-
         /// <summary>
         /// 전체 dash
         /// </summary>
@@ -178,7 +177,6 @@
             set;
         }
 
-
         /// <summary>
         /// 전체 ltc
         /// </summary>
@@ -223,7 +221,6 @@
             get;
             set;
         }
-
 
         /// <summary>
         /// 전체 etc
@@ -316,18 +313,315 @@
         }
 
         /// <summary>
-        /// bithumb 마지막 거래체결 금액
+        /// 전체 bch
         /// </summary>
-        public decimal xcoin_last
+        public decimal total_bch
         {
             get;
             set;
         }
 
         /// <summary>
-        /// 미수 증거금
+        /// 사용중 bch
         /// </summary>
-        public decimal misu_depo_krw
+        public decimal in_use_bch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 bch
+        /// </summary>
+        public decimal available_bch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 bch
+        /// </summary>
+        public decimal misu_bch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_bch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 xmr
+        /// </summary>
+        public decimal total_xmr
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 xmr
+        /// </summary>
+        public decimal in_use_xmr
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 xmr
+        /// </summary>
+        public decimal available_xmr
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 xmr
+        /// </summary>
+        public decimal misu_xmr
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_xmr
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 zec
+        /// </summary>
+        public decimal total_zec
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 zec
+        /// </summary>
+        public decimal in_use_zec
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 zec
+        /// </summary>
+        public decimal available_zec
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 zec
+        /// </summary>
+        public decimal misu_zec
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_zec
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 qtum
+        /// </summary>
+        public decimal total_qtum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 qtum
+        /// </summary>
+        public decimal in_use_qtum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 qtum
+        /// </summary>
+        public decimal available_qtum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 qtum
+        /// </summary>
+        public decimal misu_qtum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_qtum
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 btg
+        /// </summary>
+        public decimal total_btg
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 btg
+        /// </summary>
+        public decimal in_use_btg
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 btg
+        /// </summary>
+        public decimal available_btg
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 btg
+        /// </summary>
+        public decimal misu_btg
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_btg
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 eos
+        /// </summary>
+        public decimal total_eos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 eos
+        /// </summary>
+        public decimal in_use_eos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 eos
+        /// </summary>
+        public decimal available_eos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 eos
+        /// </summary>
+        public decimal misu_eos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_eos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 전체 icx
+        /// </summary>
+        public decimal total_icx
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용중 icx
+        /// </summary>
+        public decimal in_use_icx
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 사용 가능 icx
+        /// </summary>
+        public decimal available_icx
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 신용거래 icx
+        /// </summary>
+        public decimal misu_icx
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal xcoin_last_icx
         {
             get;
             set;
@@ -373,6 +667,27 @@
                     break;
                 case "XRP":
                     _result = this.data.available_xrp;
+                    break;
+                case "BCH":
+                    _result = this.data.available_bch;
+                    break;
+                case "XMR":
+                    _result = this.data.available_xmr;
+                    break;
+                case "ZEC":
+                    _result = this.data.available_zec;
+                    break;
+                case "QTUM":
+                    _result = this.data.available_qtum;
+                    break;
+                case "BTG":
+                    _result = this.data.available_btg;
+                    break;
+                case "EOS":
+                    _result = this.data.available_eos;
+                    break;
+                case "ICX":
+                    _result = this.data.available_icx;
                     break;
             }
 
