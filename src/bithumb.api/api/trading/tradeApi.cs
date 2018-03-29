@@ -134,47 +134,53 @@ namespace XCT.BaseLib.API.Bithumb.Trading
         }
 
         /// <summary>
-        /// 판/구매 거래 주문 등록 또는 진행 중인 거래
+        /// bithumb 회원 btc 출금(회원등급에 따른 BTC, ETH, DASH, LTC, ETC, XRP 출금)
         /// </summary>
         /// <param name="currency">BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC)</param>
-        /// <param name="order_id">판/구매 주문 등록된 주문번호</param>
-        /// <param name="type">거래유형(bid : 구매, ask : 판매)</param>
-        /// <param name="count">Value : 1 ~1000 (default : 100)</param>
-        /// <param name="after">YYYY-MM-DD hh:mm:ss 의 UNIX Timestamp (2014-11-28 16:40:01 = 1417160401000)</param>
+        /// <param name="units">Currency 출금 하고자 하는 수량, 1회 최소 수량 (BTC: 0.001 | ETH: 0.01 | DASH: 0.01 | LTC: 0.01 | ETC: 0.01 | XRP: 21) - 1회 최대 수량 : 회원등급수량</param>
+        /// <param name="address">Currency 출금 주소 (BTC, ETH, DASH, LTC, ETC, XRP)</param>
+        /// <param name="destination">Currency 출금 Destination Tag (XRP 출금시)</param>
         /// <returns></returns>
-        public async Task<TradeOpenOrders> OpenOrders(string currency, string order_id = "", string type = "", int count = 100, long after = 0)
+        public async Task<TradeWithdrawal> BtcWithdrawal(string currency, decimal units, string address, string destination = null)
         {
             var _params = new Dictionary<string, object>();
             {
                 _params.Add("currency", currency.ToUpper());
-                _params.Add("order_id", order_id);
-                _params.Add("type", type);
-                _params.Add("count", count);
-                _params.Add("after", after);
+                _params.Add("units", units);
+                _params.Add("address", address);
+                if (destination != null)
+                    _params.Add("destination", destination);
             }
 
-            return await TradeClient.CallApiPostAsync<TradeOpenOrders>("/info/orders", _params);
+            return await TradeClient.CallApiPostAsync<TradeWithdrawal>("/trade/btc_withdrawal", _params);
         }
 
         /// <summary>
-        /// 회원 거래 내역
+        /// bithumb 회원 krw 출금 신청
         /// </summary>
-        /// <param name="currency">BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC)</param>
-        /// <param name="offset">Value : 0 ~ (default : 0)</param>
-        /// <param name="count">Value : 1 ~ 50 (default : 20)</param>
-        /// <param name="searchGb">	0 : 전체, 1 : 구매완료, 2 : 판매완료, 3 : 출금중, 4 : 입금, 5 : 출금, 9 : KRW입금중</param>
+        /// <param name="bank">은행코드_은행명</param>
+        /// <param name="account">출금계좌번호</param>
+        /// <param name="price">출금 금액</param>
         /// <returns></returns>
-        public async Task<TradeCompleteOrders> CompleteOrders(string currency, int offset = 0, int count = 20, int searchGb = 0)
+        public async Task<TradeWithdrawal> KrwWithdrawal(string bank, string account, decimal price)
         {
             var _params = new Dictionary<string, object>();
             {
-                _params.Add("currency", currency.ToUpper());
-                _params.Add("offset", offset);
-                _params.Add("count", count);
-                _params.Add("searchGb", searchGb);
+                _params.Add("bank", bank);
+                _params.Add("account", account);
+                _params.Add("price", price);
             }
 
-            return await TradeClient.CallApiPostAsync<TradeCompleteOrders>("/info/user_transactions", _params);
+            return await TradeClient.CallApiPostAsync<TradeWithdrawal>("/trade/krw_withdrawal", _params);
+        }
+
+        /// <summary>
+        /// bithumb 회원 krw 입금 가상계좌 정보 요청
+        /// </summary>
+        /// <returns></returns>
+        public async Task<TradeKrwDeposit> KrwDeposit()
+        {
+            return await TradeClient.CallApiPostAsync<TradeKrwDeposit>("/trade/krw_deposit");
         }
     }
 }

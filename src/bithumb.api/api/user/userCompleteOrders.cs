@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace XCT.BaseLib.API.Bithumb.Trading
+namespace XCT.BaseLib.API.Bithumb.User
 {
     /// <summary>
     /// 회원 거래 내역
     /// </summary>
-    public class TradeCompleteOrder
+    public class UserCompleteOrder
     {
         /// <summary>
         /// 검색 구분 (0 : 전체, 1 : 구매완료, 2 : 판매완료, 3 : 출금중, 4 : 입금, 5 : 출금, 9 : KRW입금중)
@@ -44,7 +44,7 @@ namespace XCT.BaseLib.API.Bithumb.Trading
         }
 
         /// <summary>
-        /// 1Currency당 거래금액 (btc, eth, dash, ltc, etc, xrp)
+        /// 1Currency당 거래금액 (btc, eth, dash, ltc, etc, xrp, bch, xmr, zec, qtum, btg, eos, icx)
         /// </summary>
         public decimal btc1krw
         {
@@ -82,6 +82,48 @@ namespace XCT.BaseLib.API.Bithumb.Trading
             set;
         }
 
+        public decimal bch1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal xmr1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal zec1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal qtum1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal btg1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal eos1krw
+        {
+            get;
+            set;
+        }
+
+        public decimal icx1krw
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 거래수수료
         /// </summary>
@@ -92,7 +134,7 @@ namespace XCT.BaseLib.API.Bithumb.Trading
         }
 
         /// <summary>
-        /// 거래 후 Currency 잔액 (btc, eth, dash, ltc, etc, xrp)
+        /// 거래 후 Currency 잔액 (btc, eth, dash, ltc, etc, xrp, bch, xmr, zec, qtum, btg, eos, icx)
         /// </summary>
         public decimal btc_remain
         {
@@ -130,6 +172,48 @@ namespace XCT.BaseLib.API.Bithumb.Trading
             set;
         }
 
+        public decimal bch_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal xmr_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal zec_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal qtum_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal btg_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal eos_remain
+        {
+            get;
+            set;
+        }
+
+        public decimal icx_remain
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 거래 후 KRW 잔액
         /// </summary>
@@ -143,11 +227,11 @@ namespace XCT.BaseLib.API.Bithumb.Trading
     /// <summary>
     /// 회원 거래 내역
     /// </summary>
-    public class TradeCompleteOrders : ApiResult<List<TradeCompleteOrder>>
+    public class UserCompleteOrders : ApiResult<List<UserCompleteOrder>>
     {
-        public TradeCompleteOrders()
+        public UserCompleteOrders()
         {
-            this.data = new List<TradeCompleteOrder>();
+            this.data = new List<UserCompleteOrder>();
         }
     }
 }

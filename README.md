@@ -33,6 +33,8 @@ Since I spent several days developing and testing this kit I would appreciate an
 
 2018-03-02: convert standard library to core library
 
+2018-03-29: update complteorder, ticker, balance, transaction types
+
 ```
 
 ## Contact

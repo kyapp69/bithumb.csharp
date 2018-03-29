@@ -86,7 +86,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <param name="offset">Value : 0 ~ (Default : 0)</param>
         /// <param name="count">Value : 1 ~ 100 (Default : 20)</param>
         /// <returns></returns>
-        public async Task<PublicCompleteOrders> CompleteOrders(string currency, int offset = 0, int count = 20)
+        public async Task<PublicCompleteOrders> RecentTransactions(string currency, int offset = 0, int count = 20)
         {
             var _params = new Dictionary<string, object>();
             {

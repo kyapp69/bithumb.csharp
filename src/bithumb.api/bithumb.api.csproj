@@ -21,8 +21,8 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>Bithumb.API</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.0.2</Version>
-    <PackageReleaseNotes>update balance, ticker, transaction</PackageReleaseNotes>
+    <Version>2.0.3</Version>
+    <PackageReleaseNotes>update balance, ticker, transaction, completeorders</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

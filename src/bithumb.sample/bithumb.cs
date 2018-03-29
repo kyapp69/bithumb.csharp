@@ -30,7 +30,7 @@ namespace Bithumb.Sample.Core
 
             if (debug_step == 3)
             {
-                var _recent_transactions = await _public_api.CompleteOrders("ETH", 0, 100);
+                var _recent_transactions = await _public_api.RecentTransactions("ETH", 0, 100);
                 if (_recent_transactions.status == 0)
                     Console.WriteLine(_recent_transactions.status);
             }
@@ -80,23 +80,16 @@ namespace Bithumb.Sample.Core
 
             if (debug_step == 6)
             {
-                var _btc_withdrawal = await __info_api.Withdrawal("ETH", 0.1m, "address");
-                if (_btc_withdrawal.status == 0)
-                    Console.WriteLine(_btc_withdrawal.status);
+                var _user_transactions = await __info_api.UserTransactions("ETH");
+                if (_user_transactions.status == 0)
+                    Console.WriteLine(_user_transactions.data.Count);
             }
 
             if (debug_step == 7)
             {
-                var _krw_deposit = await __info_api.KrwDeposit();
-                if (_krw_deposit.status == 0)
-                    Console.WriteLine(_krw_deposit.status);
-            }
-
-            if (debug_step == 8)
-            {
-                var _krw_withdrawal = await __info_api.KrwWithdrawal("003_기업은행", "111-2222-33333", 10000m);
-                if (_krw_withdrawal.status == 0)
-                    Console.WriteLine(_krw_withdrawal.status);
+                var _orders = await __info_api.OpenOrders("ETH");
+                if (_orders.status == 0)
+                    Console.WriteLine(_orders.data.Count);
             }
         }
 
@@ -137,16 +130,23 @@ namespace Bithumb.Sample.Core
 
             if (debug_step == 5)
             {
-                var _user_transactions = await __trade_api.CompleteOrders("ETH");
-                if (_user_transactions.status == 0)
-                    Console.WriteLine(_user_transactions.data.Count);
+                var _btc_withdrawal = await __trade_api.BtcWithdrawal("ETH", 0.1m, "address");
+                if (_btc_withdrawal.status == 0)
+                    Console.WriteLine(_btc_withdrawal.status);
             }
 
             if (debug_step == 6)
             {
-                var _orders = await __trade_api.OpenOrders("ETH");
-                if (_orders.status == 0)
-                    Console.WriteLine(_orders.data.Count);
+                var _krw_deposit = await __trade_api.KrwDeposit();
+                if (_krw_deposit.status == 0)
+                    Console.WriteLine(_krw_deposit.status);
+            }
+
+            if (debug_step == 7)
+            {
+                var _krw_withdrawal = await __trade_api.KrwWithdrawal("003_기업은행", "111-2222-33333", 10000m);
+                if (_krw_withdrawal.status == 0)
+                    Console.WriteLine(_krw_withdrawal.status);
             }
         }
 
