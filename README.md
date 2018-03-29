@@ -10,9 +10,9 @@ We promise to continuously improve.
 
 ## Tools
 
-- Visual Studio 2017
+- Microsfot Visual Studio community 2017 version 15.4.0
 
-- .net core 2.0, .net standard 2.0, .net framework 4.6.1
+- .net core 2.0, .net framework 4.7
 
 ## License
 
