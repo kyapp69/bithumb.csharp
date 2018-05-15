@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using OdinSdk.BaseLib.Configuration;
+﻿using OdinSdk.BaseLib.Configuration;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XCT.BaseLib.API.Bithumb
+namespace CCXT.NET.Bithumb
 {
     /// <summary>
     /// 
@@ -20,10 +19,69 @@ namespace XCT.BaseLib.API.Bithumb
         /// 
         /// </summary>
         public BithumbClient(string connect_key, string secret_key)
-            : base(__api_url, connect_key, secret_key)
+            : this(__api_url, connect_key, secret_key)
+        {
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public BithumbClient(string api_url, string connect_key, string secret_key)
+            : base(api_url, connect_key, secret_key)
         {
         }
 
+        /// <summary>
+        /// 결과 메시지
+        /// </summary>
+        public string getErrorMessage(int status)
+        {
+            var _result = "";
+
+            switch (status)
+            {
+                case 0:
+                    _result = "success";
+                    break;
+                case 5100:
+                    _result = "bad request";
+                    break;
+                case 5200:
+                    _result = "not member";
+                    break;
+                case 5300:
+                    _result = "invalid apikey";
+                    break;
+                case 5302:
+                    _result = "method not allowed";
+                    break;
+                case 5400:
+                    _result = "database fail";
+                    break;
+                case 5500:
+                    _result = "invalid parameter";
+                    break;
+                case 5600:
+                    _result = "custom notice(output error messages in context)";
+                    break;
+                case 5900:
+                    _result = "unknown error";
+                    break;
+                default:
+                    _result = "unknown error";
+                    break;
+            }
+
+            return _result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="rgData"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="apiSecret"></param>
+        /// <returns></returns>
         private Dictionary<string, object> GetHttpHeaders(string endpoint, Dictionary<string, object> rgData, string apiKey, string apiSecret)
         {
             var _nonce = CUnixTime.NowMilli.ToString();
@@ -53,11 +111,10 @@ namespace XCT.BaseLib.API.Bithumb
         /// <summary>
         /// 
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="endpoint"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public new async Task<T> CallApiPostAsync<T>(string endpoint, Dictionary<string, object> args = null) where T : new()
+        public override async Task<string> CallApiPostAsync(string endpoint, Dictionary<string, object> args = null)
         {
             var _request = CreateJsonRequest(endpoint, Method.POST);
             {
@@ -90,7 +147,7 @@ namespace XCT.BaseLib.API.Bithumb
                 });
 
                 var _response = await _tcs.Task;
-                return JsonConvert.DeserializeObject<T>(_response.Content);
+                return _response.Content;
             }
         }
     }

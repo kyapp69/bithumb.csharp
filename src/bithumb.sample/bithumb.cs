@@ -1,36 +1,39 @@
-﻿using System;
-using XCT.BaseLib.API.Bithumb.Public;
-using XCT.BaseLib.API.Bithumb.Trading;
-using XCT.BaseLib.API.Bithumb.User;
+﻿using CCXT.NET.Bithumb.Private;
+using CCXT.NET.Bithumb.Public;
+using CCXT.NET.Bithumb.Trade;
+using System;
 
-namespace Bithumb.Sample.Core
+namespace CCXT.NET.Bithumb.Sample
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Bithumb
     {
         /// <summary>
         /// 1. Public API
         /// </summary>
-        public static async void XPublicApi(int debug_step = 1)
+        public static async void XPublicApi(int debug_step = 3)
         {
-            var _public_api = new BPublicApi();
+            var _public_api = new PublicApi();
 
             if (debug_step == 1)
             {
-                var _ticker = await _public_api.Ticker("ETH");
+                var _ticker = await _public_api.FetchTicker("ETH");
                 if (_ticker.status == 0)
                     Console.WriteLine(_ticker.data.closing_price);
             }
 
             if (debug_step == 2)
             {
-                var _orderbook = await _public_api.OrderBook("ETH", 1, 50);
+                var _orderbook = await _public_api.FetchOrderBooks("ETH", 1, 50);
                 if (_orderbook.status == 0)
                     Console.WriteLine(_orderbook.data.timestamp);
             }
 
             if (debug_step == 3)
             {
-                var _recent_transactions = await _public_api.RecentTransactions("ETH", 0, 100);
+                var _recent_transactions = await _public_api.FetchTrades("ETH", 0, 100);
                 if (_recent_transactions.status == 0)
                     Console.WriteLine(_recent_transactions.status);
             }
@@ -41,53 +44,53 @@ namespace Bithumb.Sample.Core
         /// </summary>
         public static async void XUserApi(int debug_step = 7)
         {
-            var __info_api = new BUserApi("", "");
+            var __info_api = new PrivateApi("", "");
 
             if (debug_step == 1)
             {
-                var _account = await __info_api.Account("ETH");
+                var _account = await __info_api.FetchAccount("ETH");
                 if (_account.status == 0)
                     Console.WriteLine(_account.data.account_id);
             }
 
             if (debug_step == 2)
             {
-                var _balance = await __info_api.Balance("ETH");
+                var _balance = await __info_api.FetchBalances("ETH");
                 if (_balance.status == 0)
                     Console.WriteLine(_balance.data.available_btc);
             }
 
             if (debug_step == 3)
             {
-                var _wallet_address = await __info_api.WalletAddress("ETH");
+                var _wallet_address = await __info_api.FetchAddress("ETH");
                 if (_wallet_address.status == 0)
                     Console.WriteLine(_wallet_address.data.wallet_address);
             }
 
             if (debug_step == 4)
             {
-                var _ticker = await __info_api.Ticker(order_currency: "ETH");
+                var _ticker = await __info_api.FetchTicker(order_currency: "ETH");
                 if (_ticker.status == 0)
                     Console.WriteLine(_ticker.data.units_traded);
             }
 
             if (debug_step == 5)
             {
-                var _order_detail = await __info_api.OrderDetail("ETH", "order_id", "ask");
+                var _order_detail = await __info_api.FetchOrderDetails("ETH", "order_id", "ask");
                 if (_order_detail.status == 0)
                     Console.WriteLine(_order_detail.data.Count);
             }
 
             if (debug_step == 6)
             {
-                var _user_transactions = await __info_api.UserTransactions("ETH");
+                var _user_transactions = await __info_api.FetchTrades("ETH");
                 if (_user_transactions.status == 0)
                     Console.WriteLine(_user_transactions.data.Count);
             }
 
             if (debug_step == 7)
             {
-                var _orders = await __info_api.OpenOrders("ETH");
+                var _orders = await __info_api.FetchOpenOrders("ETH");
                 if (_orders.status == 0)
                     Console.WriteLine(_orders.data.Count);
             }
@@ -98,7 +101,7 @@ namespace Bithumb.Sample.Core
         /// </summary>
         public static async void XTradeApi(int debug_step = 1)
         {
-            var __trade_api = new BTradeApi("", "");
+            var __trade_api = new TradeApi("", "");
 
             if (debug_step == 1)
             {
@@ -150,7 +153,11 @@ namespace Bithumb.Sample.Core
             }
         }
 
-        public static void Start(int debug_step = 2)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="debug_step"></param>
+        public static void Start(int debug_step = 1)
         {
             // 1. Public API
             if (debug_step == 1)

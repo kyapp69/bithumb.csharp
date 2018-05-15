@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XCT.BaseLib.API.Bithumb.User
+namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UserOpenOrder
+    public class OpenOrder
     {
         /// <summary>
         /// 
@@ -74,7 +74,7 @@ namespace XCT.BaseLib.API.Bithumb.User
         /// <summary>
         /// 주문 체결 잔액
         /// </summary>
-        [JsonProperty(NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public decimal units_remaining
         {
             get;
@@ -133,11 +133,14 @@ namespace XCT.BaseLib.API.Bithumb.User
     /// <summary>
     /// 판/구매 거래 주문 등록 또는 진행 중인 거래
     /// </summary>
-    public class UserOpenOrders : ApiResult<List<UserOpenOrder>>
+    public class OpenOrders : ApiResult<List<OpenOrder>>
     {
-        public UserOpenOrders()
+        /// <summary>
+        /// 
+        /// </summary>
+        public OpenOrders()
         {
-            this.data = new List<UserOpenOrder>();
+            this.data = new List<OpenOrder>();
         }
     }
 }

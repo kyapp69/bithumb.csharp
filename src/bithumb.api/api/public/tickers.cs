@@ -1,11 +1,11 @@
-﻿namespace XCT.BaseLib.API.Bithumb.Public
+﻿namespace CCXT.NET.Bithumb.Public
 {
     /// <summary>
     /// https://api.bithumb.com/public/ticker/{currency}
     /// bithumb 거래소 마지막 거래 정보
     /// * {currency} = BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC), ALL(전체)
     /// </summary>
-    public class PublicTickerData
+    public class TickerItem
     {
         /// <summary>
         /// 최근 24시간 내 시작 거래금액
@@ -111,37 +111,76 @@
     /// <summary>
     /// 
     /// </summary>
-    public class PublicTicker : ApiResult<PublicTickerData>
+    public class Ticker : ApiResult<TickerItem>
     {
-        public PublicTicker()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Ticker()
         {
-            this.data = new PublicTickerData();
+            this.data = new TickerItem();
         }
     }
 
-    public class PublicTickerAll
+    /// <summary>
+    /// 
+    /// </summary>
+    public class TickerAll
     {
-        public PublicTickerAll()
+        /// <summary>
+        /// 
+        /// </summary>
+        public TickerAll()
         {
-            BTC = new PublicTickerData();
-            ETH = new PublicTickerData();
-            DASH = new PublicTickerData();
-            LTC = new PublicTickerData();
-            ETC = new PublicTickerData();
-            XRP = new PublicTickerData();
-            BCH = new PublicTickerData();
-            XMR = new PublicTickerData();
-            ZEC = new PublicTickerData();
-            QTUM = new PublicTickerData();
-            BTG = new PublicTickerData();
-            EOS = new PublicTickerData();
-            ICX = new PublicTickerData();
+            BTC = new TickerItem();
+            ETH = new TickerItem();
+            XRP = new TickerItem();
+            BCH = new TickerItem();
+            EOS = new TickerItem();
+            LTC = new TickerItem();
+            TRX = new TickerItem();
+            DASH = new TickerItem();
+            XMR = new TickerItem();
+            VNE = new TickerItem();
+            ETC = new TickerItem();
+            ICX = new TickerItem();
+            QTUM = new TickerItem();
+            OMG = new TickerItem();
+            ZEC = new TickerItem();
+            BTG = new TickerItem();
+        }
+
+        /// <summary>
+        /// 오미세고
+        /// </summary>
+        public TickerItem OMG
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 비체인
+        /// </summary>
+        public TickerItem VNE
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Tronix
+        /// </summary>
+        public TickerItem TRX
+        {
+            get;
+            set;
         }
 
         /// <summary>
         /// BitCoin
         /// </summary>
-        public PublicTickerData BTC
+        public TickerItem BTC
         {
             get;
             set;
@@ -150,7 +189,7 @@
         /// <summary>
         /// Ethereum
         /// </summary>
-        public PublicTickerData ETH
+        public TickerItem ETH
         {
             get;
             set;
@@ -159,7 +198,7 @@
         /// <summary>
         /// DashCoin
         /// </summary>
-        public PublicTickerData DASH
+        public TickerItem DASH
         {
             get;
             set;
@@ -168,7 +207,7 @@
         /// <summary>
         /// LiteCoin
         /// </summary>
-        public PublicTickerData LTC
+        public TickerItem LTC
         {
             get;
             set;
@@ -177,7 +216,7 @@
         /// <summary>
         /// Ethereum Classic
         /// </summary>
-        public PublicTickerData ETC
+        public TickerItem ETC
         {
             get;
             set;
@@ -186,7 +225,7 @@
         /// <summary>
         /// Ripple
         /// </summary>
-        public PublicTickerData XRP
+        public TickerItem XRP
         {
             get;
             set;
@@ -195,7 +234,7 @@
         /// <summary>
         /// Bitcoin Cash
         /// </summary>
-        public PublicTickerData BCH
+        public TickerItem BCH
         {
             get;
             set;
@@ -204,7 +243,7 @@
         /// <summary>
         /// Monero
         /// </summary>
-        public PublicTickerData XMR
+        public TickerItem XMR
         {
             get;
             set;
@@ -213,7 +252,7 @@
         /// <summary>
         /// Z-CASH
         /// </summary>
-        public PublicTickerData ZEC
+        public TickerItem ZEC
         {
             get;
             set;
@@ -222,7 +261,7 @@
         /// <summary>
         /// Quntum
         /// </summary>
-        public PublicTickerData QTUM
+        public TickerItem QTUM
         {
             get;
             set;
@@ -231,7 +270,7 @@
         /// <summary>
         /// Bitcoin Gold
         /// </summary>
-        public PublicTickerData BTG
+        public TickerItem BTG
         {
             get;
             set;
@@ -240,7 +279,7 @@
         /// <summary>
         /// EOS
         /// </summary>
-        public PublicTickerData EOS
+        public TickerItem EOS
         {
             get;
             set;
@@ -249,7 +288,7 @@
         /// <summary>
         /// ICX
         /// </summary>
-        public PublicTickerData ICX
+        public TickerItem ICX
         {
             get;
             set;
@@ -268,11 +307,14 @@
     /// <summary>
     /// 
     /// </summary>
-    public class PublicTickers : ApiResult<PublicTickerAll>
+    public class Tickers : ApiResult<TickerAll>
     {
-        public PublicTickers()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Tickers()
         {
-            this.data = new PublicTickerAll();
+            this.data = new TickerAll();
         }
     }
 }

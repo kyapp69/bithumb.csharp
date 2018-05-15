@@ -35,6 +35,8 @@ Since I spent several days developing and testing this kit I would appreciate an
 
 2018-03-29: update complteorder, ticker, balance, transaction types, upgrade .net core 2.0 & net47
 
+2018-05-15: convert namespace to CCXT.NET & Balance class update & public transaction history API update
+
 ```
 
 ## Contact

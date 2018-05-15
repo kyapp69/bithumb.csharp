@@ -1,23 +1,23 @@
-﻿namespace XCT.BaseLib.API.Bithumb.User
+﻿namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserDepositAddress
+    public class WalletItem
     {
         /// <summary>
-        /// 전자지갑 Address
+        /// BTC, ETH, DASH, LTC, ETC, XRP
         /// </summary>
-        public string wallet_address
+        public string currency
         {
             get;
             set;
         }
 
         /// <summary>
-        /// BTC, ETH, DASH, LTC, ETC, XRP
+        /// 전자지갑 Address
         /// </summary>
-        public string currency
+        public string wallet_address
         {
             get;
             set;
@@ -27,11 +27,14 @@
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserDeposit : ApiResult<UserDepositAddress>
+    public class Wallet : ApiResult<WalletItem>
     {
-        public UserDeposit()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Wallet()
         {
-            this.data = new UserDepositAddress();
+            this.data = new WalletItem();
         }
     }
 }

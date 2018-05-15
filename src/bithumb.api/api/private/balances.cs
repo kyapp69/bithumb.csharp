@@ -1,9 +1,9 @@
-﻿namespace XCT.BaseLib.API.Bithumb.User
+﻿namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserBalanceData
+    public class Balance
     {
         /// <summary>
         /// 전체 KRW
@@ -631,11 +631,14 @@
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserBalance : ApiResult<UserBalanceData>
+    public class Balances : ApiResult<Balance>
     {
-        public UserBalance()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Balances()
         {
-            this.data = new UserBalanceData();
+            this.data = new Balance();
         }
 
         /// <summary>

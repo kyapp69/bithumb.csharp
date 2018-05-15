@@ -4,38 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace XCT.BaseLib.API.Bithumb.Public
+namespace CCXT.NET.Bithumb.Public
 {
     /// <summary>
-    /// https://api.bithumb.com/public/recent_transactions/{currency}
+    /// https://api.bithumb.com/public/transaction_history/{currency}
     /// bithumb 거래소 거래 체결 완료 내역
     /// * {currency} = BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC)
     /// </summary>
-    public class PublicCompleteOrder
+    public class CompleteOrder
     {
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="cont_no"></param>
         /// <param name="transaction_date"></param>
         /// <param name="type"></param>
         /// <param name="units_traded"></param>
         /// <param name="price"></param>
         /// <param name="total"></param>
         [JsonConstructor]
-        public PublicCompleteOrder(string transaction_date, string type, string units_traded, string price, string total)
+        public CompleteOrder(string cont_no, string transaction_date, string type, string units_traded, string price, string total)
         {
-            if (CUnixTime.IsDateTimeFormat(transaction_date) == true)
-            {
-                var _tdate = CUnixTime.ConvertToUtcTime(transaction_date + "+09:00");
-                this.transaction_date = CUnixTime.ConvertToUnixTimeMilli(_tdate);
-            }
-            else
-                this.transaction_date = Convert.ToInt64(transaction_date);
+            this.cont_no = Convert.ToInt64(cont_no);
+
+            var _tdate = CUnixTime.ConvertToUtcTime(transaction_date + "+09:00");
+            this.transaction_date = CUnixTime.ConvertToUnixTimeMilli(_tdate);
 
             this.type = type;
+
             this.units_traded = Convert.ToDecimal(units_traded);
             this.price = decimal.Parse(price, NumberStyles.Float);
             this.total = decimal.Parse(total, NumberStyles.Float);
+        }
+
+        /// <summary>
+        /// 채결 번호
+        /// </summary>
+        public long cont_no
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -87,11 +95,14 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// <summary>
     /// 
     /// </summary>
-    public class PublicCompleteOrders : ApiResult<List<PublicCompleteOrder>>
+    public class CompleteOrders : ApiResult<List<CompleteOrder>>
     {
-        public PublicCompleteOrders()
+        /// <summary>
+        /// 
+        /// </summary>
+        public CompleteOrders()
         {
-            this.data = new List<PublicCompleteOrder>();
+            this.data = new List<CompleteOrder>();
         }
     }
 }

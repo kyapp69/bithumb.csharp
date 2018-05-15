@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace XCT.BaseLib.API.Bithumb.Public
+namespace CCXT.NET.Bithumb.Public
 {
     /// <summary>
     /// https://api.bithumb.com/
     /// </summary>
-    public class BPublicApi
+    public class PublicApi
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const string DealerName = "Bithumb";
 
         private string __connect_key;
@@ -17,14 +19,14 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <summary>
         /// 
         /// </summary>
-        public BPublicApi()
+        public PublicApi()
         {
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public BPublicApi(string connect_key, string secret_key)
+        public PublicApi(string connect_key, string secret_key)
         {
             __connect_key = connect_key;
             __secret_key = secret_key;
@@ -32,7 +34,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
 
         private BithumbClient __public_client = null;
 
-        private BithumbClient PublicClient
+        private BithumbClient publicClient
         {
             get
             {
@@ -47,18 +49,18 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// </summary>
         /// <param name="currency">BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC), ALL(전체)</param>
         /// <returns></returns>
-        public async Task<PublicTicker> Ticker(string currency = "ALL")
+        public async Task<Ticker> FetchTicker(string currency)
         {
-            return await PublicClient.CallApiGetAsync<PublicTicker>($"/public/ticker/{currency.ToUpper()}");
+            return await publicClient.CallApiGetAsync<Ticker>($"/public/ticker/{currency.ToUpper()}");
         }
 
         /// <summary>
         /// bithumb 거래소 마지막 거래 정보
         /// </summary>
         /// <returns></returns>
-        public async Task<PublicTickers> TickerAll()
+        public async Task<Tickers> FetchTickers()
         {
-            return await PublicClient.CallApiGetAsync<PublicTickers>($"/public/ticker/ALL");
+            return await publicClient.CallApiGetAsync<Tickers>($"/public/ticker/ALL");
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <param name="group_orders">Value : 0 또는 1 (Default : 1)</param>
         /// <param name="count">Value : 1 ~ 50 (Default : 20)</param>
         /// <returns></returns>
-        public async Task<PublicOrderBook> OrderBook(string currency = "ALL", int group_orders = 1, int count = 20)
+        public async Task<OrderBooks> FetchOrderBooks(string currency = "ALL", int group_orders = 1, int count = 20)
         {
             var _params = new Dictionary<string, object>();
             {
@@ -76,25 +78,27 @@ namespace XCT.BaseLib.API.Bithumb.Public
                 _params.Add("count", count);
             }
 
-            return await PublicClient.CallApiGetAsync<PublicOrderBook>($"/public/orderbook/{currency.ToUpper()}", _params);
+            return await publicClient.CallApiGetAsync<OrderBooks>($"/public/orderbook/{currency.ToUpper()}", _params);
         }
 
         /// <summary>
         /// bithumb 거래소 거래 체결 완료 내역
         /// </summary>
         /// <param name="currency">BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC)</param>
-        /// <param name="offset">Value : 0 ~ (Default : 0)</param>
+        /// <param name="cont_no">체결번호</param>
         /// <param name="count">Value : 1 ~ 100 (Default : 20)</param>
         /// <returns></returns>
-        public async Task<PublicCompleteOrders> RecentTransactions(string currency, int offset = 0, int count = 20)
+        public async Task<CompleteOrders> FetchTrades(string currency, int cont_no = 0, int count = 20)
         {
             var _params = new Dictionary<string, object>();
             {
-                _params.Add("offset", offset);
+                if (cont_no > 0)
+                    _params.Add("cont_no", cont_no);
+
                 _params.Add("count", count);
             }
 
-            return await PublicClient.CallApiGetAsync<PublicCompleteOrders>($"/public/recent_transactions/{currency.ToUpper()}", _params);
+            return await publicClient.CallApiGetAsync<CompleteOrders>($"/public/transaction_history/{currency.ToUpper()}", _params);
         }
     }
 }

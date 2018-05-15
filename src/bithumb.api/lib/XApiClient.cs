@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using OdinSdk.BaseLib.Configuration;
 using OdinSdk.BaseLib.Serialize;
 using RestSharp;
 using System;
@@ -8,22 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XCT.BaseLib.API
+namespace CCXT.NET
 {
     /// <summary>
     /// 
     /// </summary>
     public class XApiClient : IDisposable
     {
-        protected static CLogger __clogger = new CLogger();
+        /// <summary>
+        /// 
+        /// </summary>
+        protected const string __content_type = "application/json";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected const string __user_agent = "btc-trading/5.2.2017.01";
 
         private string __api_url = "";
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected string __connect_key;
-        protected string __secret_key;
 
-        protected const string __content_type = "application/json";
-        protected const string __user_agent = "btc-trading/5.2.2017.01";
+        /// <summary>
+        /// 
+        /// </summary>
+        protected string __secret_key;
 
         /// <summary>
         /// 
@@ -37,6 +48,11 @@ namespace XCT.BaseLib.API
 
         private static char[] __to_digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public byte[] EncodeHex(byte[] data)
         {
             int l = data.Length;
@@ -52,6 +68,11 @@ namespace XCT.BaseLib.API
             return _result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rgData"></param>
+        /// <returns></returns>
         public string EncodeURIComponent(Dictionary<string, object> rgData)
         {
             string _result = String.Join("&", rgData.Select((x) => String.Format("{0}={1}", x.Key, x.Value)));
@@ -65,6 +86,11 @@ namespace XCT.BaseLib.API
             return _result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="baseurl"></param>
+        /// <returns></returns>
         public IRestClient CreateJsonClient(string baseurl)
         {
             var _client = new RestClient(baseurl)
@@ -81,6 +107,12 @@ namespace XCT.BaseLib.API
             return _client;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public IRestRequest CreateJsonRequest(string resource, Method method = Method.GET)
         {
             var _request = new RestRequest(resource, method)
@@ -99,7 +131,19 @@ namespace XCT.BaseLib.API
         /// <param name="endpoint"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public async Task<T> CallApiPostAsync<T>(string endpoint, Dictionary<string, object> args = null) where T : new()
+        public virtual async Task<T> CallApiPostAsync<T>(string endpoint, Dictionary<string, object> args = null) where T : new()
+        {
+            var _response = await CallApiPostAsync(endpoint, args);
+            return JsonConvert.DeserializeObject<T>(_response);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public virtual async Task<string> CallApiPostAsync(string endpoint, Dictionary<string, object> args = null)
         {
             var _request = CreateJsonRequest(endpoint, Method.POST);
             {
@@ -126,7 +170,7 @@ namespace XCT.BaseLib.API
                 });
 
                 var _response = await _tcs.Task;
-                return JsonConvert.DeserializeObject<T>(_response.Content);
+                return _response.Content;
             }
         }
 
@@ -137,27 +181,10 @@ namespace XCT.BaseLib.API
         /// <param name="endpoint"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public async Task<T> CallApiGetAsync<T>(string endpoint, Dictionary<string, object> args = null) where T : new()
+        public virtual async Task<T> CallApiGetAsync<T>(string endpoint, Dictionary<string, object> args = null) where T : new()
         {
-            var _request = CreateJsonRequest(endpoint, Method.GET);
-
-            if (args != null)
-            {
-                foreach (var a in args)
-                    _request.AddParameter(a.Key, a.Value);
-            }
-
-            var _client = CreateJsonClient(__api_url);
-            {
-                var _tcs = new TaskCompletionSource<IRestResponse>();
-                var _handle = _client.ExecuteAsync(_request, response =>
-                {
-                    _tcs.SetResult(response);
-                });
-
-                var _response = await _tcs.Task;
-                return JsonConvert.DeserializeObject<T>(_response.Content);
-            }
+            var _response = await CallApiGetAsync(endpoint, args);
+            return JsonConvert.DeserializeObject<T>(_response);
         }
 
         /// <summary>
@@ -166,7 +193,7 @@ namespace XCT.BaseLib.API
         /// <param name="endpoint"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public async Task<string> CallApiGetAsync(string endpoint, Dictionary<string, object> args = null) 
+        public virtual async Task<string> CallApiGetAsync(string endpoint, Dictionary<string, object> args = null) 
         {
             var _request = CreateJsonRequest(endpoint, Method.GET);
 

@@ -1,11 +1,9 @@
-﻿using XCT.BaseLib.API;
-
-namespace XCT.BaseLib.API.Bithumb.User
+﻿namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserAccountData
+    public class AccountItem
     {
         /// <summary>
         /// 회원가입 일시 Timestamp
@@ -47,11 +45,14 @@ namespace XCT.BaseLib.API.Bithumb.User
     /// <summary>
     /// bithumb 거래소 회원 지갑 정보
     /// </summary>
-    public class UserAccount : ApiResult<UserAccountData>
+    public class Account : ApiResult<AccountItem>
     {
-        public UserAccount()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Account()
         {
-            this.data = new UserAccountData();
+            this.data = new AccountItem();
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
-namespace XCT.BaseLib.API.Bithumb.Public
+namespace CCXT.NET.Bithumb.Public
 {
     /// <summary>
     /// https://api.bithumb.com/public/orderbook/{currency}
     /// bithumb 거래소 판/구매 등록 대기 또는 거래 중 내역 정보
     /// * {currency} = BTC, ETH, DASH, LTC, ETC, XRP (기본값: BTC), ALL(전체)
     /// </summary>
-    public class PublicOrderBookData
+    public class OrderBookItem
     {
         /// <summary>
         /// Currency 수량
@@ -33,7 +31,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// <summary>
     /// 
     /// </summary>
-    public class OrderBookData
+    public class OrderBook
     {
         /// <summary>
         /// 현재 시간 Timestamp
@@ -65,7 +63,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <summary>
         /// 구매요청
         /// </summary>
-        public List<PublicOrderBookData> bids
+        public List<OrderBookItem> bids
         {
             get;
             set;
@@ -74,7 +72,7 @@ namespace XCT.BaseLib.API.Bithumb.Public
         /// <summary>
         /// 판매요청
         /// </summary>
-        public List<PublicOrderBookData> asks
+        public List<OrderBookItem> asks
         {
             get;
             set;
@@ -84,11 +82,14 @@ namespace XCT.BaseLib.API.Bithumb.Public
     /// <summary>
     /// 
     /// </summary>
-    public class PublicOrderBook : ApiResult<OrderBookData>
+    public class OrderBooks : ApiResult<OrderBook>
     {
-        public PublicOrderBook()
+        /// <summary>
+        /// 
+        /// </summary>
+        public OrderBooks()
         {
-            this.data = new OrderBookData();
+            this.data = new OrderBook();
         }
     }
 }

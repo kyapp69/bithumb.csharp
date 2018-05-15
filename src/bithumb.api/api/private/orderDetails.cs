@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace XCT.BaseLib.API.Bithumb.User
+namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UserOrderDetailData
+    public class OrderDetail
     {   
         /// <summary>
         /// 체결 시간 Timestamp
@@ -83,7 +83,14 @@ namespace XCT.BaseLib.API.Bithumb.User
     /// <summary>
     /// 판/구매 거래 주문 등록 또는 진행 중인 거래
     /// </summary>
-    public class UserOrderDetail : ApiResult<List<UserOrderDetailData>>
+    public class OrderDetails : ApiResult<List<OrderDetail>>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public OrderDetails()
+        {
+            this.data = new List<OrderDetail>();
+        }
     }
 }

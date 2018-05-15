@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace XCT.BaseLib.API.Bithumb.Trading
+namespace CCXT.NET.Bithumb.Trade
 {
     /// <summary>
     /// 
     /// </summary>
-    public class TradePlaceData
+    public class PlaceItem
     {
         /// <summary>
         /// 체결 번호
@@ -56,7 +56,7 @@ namespace XCT.BaseLib.API.Bithumb.Trading
     /// <summary>
     /// bithumb 회원 판/구매 거래 주문 등록 및 체결
     /// </summary>
-    public class TradePlace : ApiResult<List<TradePlaceData>>
+    public class Place : ApiResult<List<PlaceItem>>
     {
         /// <summary>
         /// 주문 ID
@@ -71,7 +71,7 @@ namespace XCT.BaseLib.API.Bithumb.Trading
     /// <summary>
     /// 시장가 구매
     /// </summary>
-    public class TradePlaceMarketData
+    public class PlaceMarketItem
     {
         /// <summary>
         /// 체결 번호
@@ -122,7 +122,7 @@ namespace XCT.BaseLib.API.Bithumb.Trading
     /// <summary>
     /// 시장가 구매
     /// </summary>
-    public class TradePlaceMarket : ApiResult<List<TradePlaceMarketData>>
+    public class PlaceMarket : ApiResult<List<PlaceMarketItem>>
     {
         /// <summary>
         /// 주문 번호

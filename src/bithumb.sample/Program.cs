@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Text;
 
-namespace Bithumb.Sample.Core
+namespace CCXT.NET.Bithumb.Sample
 {
-    class Program
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Program
     {
        /// <summary>
         /// 
@@ -14,7 +17,7 @@ namespace Bithumb.Sample.Core
             var provider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(provider);
 
-            Bithumb.Start(0);
+            Bithumb.Start();
 
             while (Console.ReadLine() != "quit")
                 Console.WriteLine("Enter 'quit' to stop the services and end the process...");

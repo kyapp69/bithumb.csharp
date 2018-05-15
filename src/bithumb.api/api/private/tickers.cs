@@ -1,9 +1,9 @@
-﻿namespace XCT.BaseLib.API.Bithumb.User
+﻿namespace CCXT.NET.Bithumb.Private
 {
     /// <summary>
     /// 
     /// </summary>
-    public class UserTickerData
+    public class TickerItem
     {
         /// <summary>
         /// 최근 24시간 내 시작 거래금액
@@ -108,11 +108,14 @@
     /// <summary>
     /// 
     /// </summary>
-    public class UserTicker : ApiResult<UserTickerData>
+    public class Ticker : ApiResult<TickerItem>
     {
-        public UserTicker()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Ticker()
         {
-            this.data = new UserTickerData();
+            this.data = new TickerItem();
         }
     }
 }
