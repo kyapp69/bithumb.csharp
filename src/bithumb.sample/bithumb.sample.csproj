@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net47;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net462;net471;netcoreapp2.0</TargetFrameworks>
     <AssemblyName>Bithumb.Sample</AssemblyName>
     <RootNamespace>Bithumb.Sample</RootNamespace>
   </PropertyGroup>
