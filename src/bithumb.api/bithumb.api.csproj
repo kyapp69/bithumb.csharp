@@ -10,7 +10,7 @@
     <TargetFrameworks>net462;net471;netcoreapp2.0</TargetFrameworks>
     <AssemblyName>Bithumb.API</AssemblyName>
     <PackageId>Bithumb.API</PackageId>
-    <PackageTags>coin-sdk;trading-api;cryptocurrency;bithumb;bitcoin</PackageTags>
+    <PackageTags>bitcoin,bithumb,eth,btc,api,sdk,trading-api,cryptocurrency,exchange-api</PackageTags>
     <PackageIconUrl>https://github.com/lisa3907/bithumb.csharp/blob/master/logo-files/bithumb.api.ico?raw=true</PackageIconUrl>
     <PackageProjectUrl>https://github.com/lisa3907/bithumb.csharp</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/lisa3907/bithumb.csharp/blob/master/LICENSE</PackageLicenseUrl>
