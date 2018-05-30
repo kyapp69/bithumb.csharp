@@ -21,8 +21,9 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>Bithumb.API</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.1.0</Version>
-    <PackageReleaseNotes>update net462;net471;netcore2.0</PackageReleaseNotes>
+    <Version>2.1.2</Version>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net47|AnyCPU'">
